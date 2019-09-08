@@ -149,18 +149,18 @@ any_flag都懒得写的点击这里[Ritchie's Blog][]
 ```text
 markdown目前的插入图片语法，不能设置图片的具体参数，需要html标签配合支持
 
-![图片缺失时显示的文字](https://ritchie.top/images/markdown.gif)
+![图片缺失时显示的文字](https://ritchie.top/images/post/markdown.gif)
 
 ![福利不见了](https://ritchie.top/福利.jpeg)
 
-[![带有链接的图片](https://ritchie.top/images/markdown2.gif)](http://ritchie.top)
+[![带有链接的图片](https://ritchie.top/images/post/markdown2.gif)](http://ritchie.top)
 ```
 
-![图片缺失时显示的文字](https://ritchie.top/images/markdown.gif)
+![图片缺失时显示的文字](https://ritchie.top/images/post/markdown.gif)
 
 ![福利不见了](https://ritchie.top/福利.jpeg)
 
-[![带有链接的图片](https://ritchie.top/images/markdown2.gif)](http://ritchie.top)
+[![带有链接的图片](https://ritchie.top/images/post/markdown2.gif)](http://ritchie.top)
 
 # 7. 列表
 
