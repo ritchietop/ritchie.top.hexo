@@ -50,6 +50,15 @@ import org.tensorflow.example.Example;
 import org.tensorflow.example.SequenceExample;
 ```
 
+依赖包配置
+```
+<dependency>
+    <groupId>org.tensorflow</groupId>
+    <artifactId>proto</artifactId>
+    <version>${tensorflow.version}</version>
+</dependency>
+```
+
 ## BytesList, FloatList, Int64List
 
 这三种类型是TFRecord的基本数据结构，内部包装的是三种不同类型的列表，并且提供的操作，都是基于内部包装类型进行的。
