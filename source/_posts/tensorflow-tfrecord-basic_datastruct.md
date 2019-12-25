@@ -70,8 +70,10 @@ FloatList是对List<float32>类型的包装
 
 ```
 FloatList.Builder floatListBuilder = FloatList.newBuilder();
-FloatList floatList = floatListBuilder.addValue(1F).addValue(2F).addValue(3F)
-        .mergeFrom(FloatList.newBuilder().addValue(4F).addValue(5F).build()).build();
+FloatList floatList = floatListBuilder
+        .addValue(1F).addValue(2F).addValue(3F)
+        .mergeFrom(FloatList.newBuilder().addValue(4F).addValue(5F).build())
+        .build();
 System.out.println(floatList);
 ===========output===========
 value: 1.0
@@ -86,7 +88,9 @@ Int64List是对List<int64>类型的包装
 
 ```
 Int64List.Builder int64ListBuilder = Int64List.newBuilder();
-Int64List int64List = int64ListBuilder.addAllValue(Arrays.asList(1L, 2L, 3L, 4L)).build();
+Int64List int64List = int64ListBuilder
+        .addAllValue(Arrays.asList(1L, 2L, 3L, 4L))
+        .build();
 System.out.println(int64List);
 ===========output===========
 value: 1
@@ -126,7 +130,8 @@ float_list {
 FeatureList.Builder featureListBuilder = FeatureList.newBuilder();
 FeatureList featureList = featureListBuilder
         .addFeature(feature)
-        .addFeature(Feature.newBuilder().setInt64List(int64List).build()).build();
+        .addFeature(Feature.newBuilder().setInt64List(int64List).build())
+        .build();
 System.out.println(featureList);
 ===========output===========
 feature {
@@ -250,7 +255,9 @@ SequenceExample是对Features和FeatureLists的包装。
 
 ```
 Example.Builder exampleBuilder = Example.newBuilder();
-Example example = exampleBuilder.setFeatures(features).build();
+Example example = exampleBuilder
+        .setFeatures(features)
+        .build();
 System.out.println(example);
 ===========output===========
 features {
@@ -287,7 +294,10 @@ features {
 
 ```
 SequenceExample.Builder sequenceExampleBuilder = SequenceExample.newBuilder();
-SequenceExample sequenceExample = sequenceExampleBuilder.setContext(features).setFeatureLists(featureLists).build();
+SequenceExample sequenceExample = sequenceExampleBuilder
+        .setContext(features)
+        .setFeatureLists(featureLists)
+        .build();
 System.out.println(sequenceExample);
 ===========output===========
 context {
