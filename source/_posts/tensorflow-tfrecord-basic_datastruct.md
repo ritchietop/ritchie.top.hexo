@@ -42,6 +42,12 @@ import com.google.protobuf.ByteString;
 import org.tensorflow.example.BytesList;
 import org.tensorflow.example.FloatList;
 import org.tensorflow.example.Int64List;
+import org.tensorflow.example.Feature;
+import org.tensorflow.example.Features;
+import org.tensorflow.example.FeatureList;
+import org.tensorflow.example.FeatureLists;
+import org.tensorflow.example.Example;
+import org.tensorflow.example.SequenceExample;
 ```
 
 ## BytesList, FloatList, Int64List
