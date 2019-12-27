@@ -1,5 +1,5 @@
 ---
-title: 【tensorflow】TFRecord基本数据结构
+title: 【tensorflow】TFRecord数据结构
 mathjax: true
 toc: true
 comments: true
@@ -169,7 +169,7 @@ feature {
 ============================
 ```
 
-### Features, FeatureLists
+## Features, FeatureLists
 
 Features是对Map<String, Feature>的包装。
 
@@ -260,7 +260,7 @@ feature_list {
 ============================
 ```
 
-### Example, SequenceExample
+## Example, SequenceExample
 
 Example和SequenceExample是TFRecord最终序列化的两种格式。
 
