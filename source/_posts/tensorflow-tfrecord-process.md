@@ -304,12 +304,9 @@ featureH => tf.Tensor(
 
 #### Example解析API
 
-> tf.io.parse_single_example(serialized, features)
-
-> tf.io.parse_example(serialized, features)
-
-> tf.io.parse_single_sequence_example(serialized, context_features=None, sequence_features=None)
-
-> tf.io.parse_sequence_example(serialized, context_features=None, sequence_features=None)
+- tf.io.parse_single_example(serialized, features)
+- tf.io.parse_example(serialized, features)
+- tf.io.parse_single_sequence_example(serialized, context_features=None, sequence_features=None)
+- tf.io.parse_sequence_example(serialized, context_features=None, sequence_features=None)
 
 single版解析单条数据，非single版需要加一个batch维度。其余方面两者用法完全一致。

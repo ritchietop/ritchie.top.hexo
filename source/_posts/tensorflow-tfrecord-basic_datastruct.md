@@ -37,7 +37,7 @@ message SequenceExample {
 ```
 
 ## java代码中需要引入的数据类型
-```
+```java
 import com.google.protobuf.ByteString;
 import org.tensorflow.example.BytesList;
 import org.tensorflow.example.FloatList;
@@ -63,9 +63,9 @@ import org.tensorflow.example.SequenceExample;
 
 这三种类型是TFRecord的基本数据结构，内部包装的是三种不同类型的列表，并且提供的操作，都是基于内部包装类型进行的。
 
-BytesList是对List<byteString>类型的包装
+BytesList是对`List<byteString>`类型的包装
 
-```
+```java
 BytesList.Builder bytesListBuilder = BytesList.newBuilder();
 BytesList bytesList = bytesListBuilder
         .addValue(ByteString.copyFromUtf8("A"))
@@ -74,22 +74,25 @@ BytesList bytesList = bytesListBuilder
         .addValue(ByteString.copyFromUtf8("D"))
         .build();
 System.out.println(bytesList);
+/*
 ===========output===========
 value: "C"
 value: "B"
 value: "D"
 ============================
+*/
 ```
 
-FloatList是对List<float32>类型的包装
+FloatList是对`List<float32>`类型的包装
 
-```
+```java
 FloatList.Builder floatListBuilder = FloatList.newBuilder();
 FloatList floatList = floatListBuilder
         .addValue(1F).addValue(2F).addValue(3F)
         .mergeFrom(FloatList.newBuilder().addValue(4F).addValue(5F).build())
         .build();
 System.out.println(floatList);
+/*
 ===========output===========
 value: 1.0
 value: 2.0
@@ -97,31 +100,34 @@ value: 3.0
 value: 4.0
 value: 5.0
 ============================
+*/
 ```
 
-Int64List是对List<int64>类型的包装
+Int64List是对`List<int64>`类型的包装
 
-```
+```java
 Int64List.Builder int64ListBuilder = Int64List.newBuilder();
 Int64List int64List = int64ListBuilder
         .addAllValue(Arrays.asList(1L, 2L, 3L, 4L))
         .build();
 System.out.println(int64List);
+/*
 ===========output===========
 value: 1
 value: 2
 value: 3
 value: 4
 ============================
+*/
 ```
 
 ## Feature, FeatureList
 
 Feature是对BytesList，Int64List，FloatList三种类型中的一种进行了包装。通过Feature的包装，隐藏了不同特征列的类型差异。
 
-FeatureList是对List<Feature>的包装。每个Feature包装的list（bytesList, Int64List, FloatList）长度可以不同。
+FeatureList是对`List<Feature>`的包装。每个Feature包装的list（bytesList, Int64List, FloatList）长度可以不同。
 
-```
+```java
 // feature中只能包含一种list，多次赋值会被覆盖
 Feature.Builder featureBuilder = Feature.newBuilder();
 Feature feature = featureBuilder
@@ -130,6 +136,7 @@ Feature feature = featureBuilder
         .setFloatList(floatList)
         .build();
 System.out.println(feature);
+/*
 ===========output===========
 float_list {
   value: 1.0
@@ -139,15 +146,17 @@ float_list {
   value: 5.0
 }
 ============================
+*/
 ```
 
-```
+```java
 FeatureList.Builder featureListBuilder = FeatureList.newBuilder();
 FeatureList featureList = featureListBuilder
         .addFeature(feature)
         .addFeature(Feature.newBuilder().setInt64List(int64List).build())
         .build();
 System.out.println(featureList);
+/*
 ===========output===========
 feature {
   float_list {
@@ -167,17 +176,18 @@ feature {
   }
 }
 ============================
+*/
 ```
 
 ## Features, FeatureLists
 
-Features是对Map<String, Feature>的包装。
+Features是对`Map<String, Feature>`的包装。
 
-FeatureLists是对Map<String, FeatureList>的包装。
+FeatureLists是对`Map<String, FeatureList>`的包装。
 
 不同的key对应的不同的特征名称。
 
-```
+```java
 Feature.Builder bytesFeatureBuilder = Feature.newBuilder();
 Feature bytesFeature = bytesFeatureBuilder.setBytesList(bytesList).build();
 Feature.Builder floatFeatureBuilder = Feature.newBuilder();
@@ -189,6 +199,7 @@ Features features = featuresBuilder
         .putFeature("emptyFeatureKey", Feature.newBuilder().build())
         .build();
 System.out.println(features);
+/*
 ===========output===========
 feature {
   key: "bytesFeatureKey"
@@ -218,9 +229,10 @@ feature {
   }
 }
 ============================
+*/
 ```
 
-```
+```java
 FeatureLists.Builder featureListsBuilder = FeatureLists.newBuilder();
 FeatureLists featureLists = featureListsBuilder
         .putAllFeatureList(new HashMap<String, FeatureList>() {{
@@ -229,6 +241,7 @@ FeatureLists featureLists = featureListsBuilder
         }})
         .build();
 System.out.println(featureLists);
+/*
 ===========output===========
 feature_list {
   key: "featureListKey"
@@ -258,6 +271,7 @@ feature_list {
   }
 }
 ============================
+*/
 ```
 
 ## Example, SequenceExample
@@ -268,12 +282,13 @@ Example是对Features的包装。
 
 SequenceExample是对Features和FeatureLists的包装。
 
-```
+```java
 Example.Builder exampleBuilder = Example.newBuilder();
 Example example = exampleBuilder
         .setFeatures(features)
         .build();
 System.out.println(example);
+/*
 ===========output===========
 features {
   feature {
@@ -305,15 +320,17 @@ features {
   }
 }
 ============================
+*/
 ```
 
-```
+```java
 SequenceExample.Builder sequenceExampleBuilder = SequenceExample.newBuilder();
 SequenceExample sequenceExample = sequenceExampleBuilder
         .setContext(features)
         .setFeatureLists(featureLists)
         .build();
 System.out.println(sequenceExample);
+/*
 ===========output===========
 context {
   feature {
@@ -374,4 +391,5 @@ feature_lists {
   }
 }
 ============================
+*/
 ```
