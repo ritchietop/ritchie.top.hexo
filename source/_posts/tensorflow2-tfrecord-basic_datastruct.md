@@ -1,5 +1,5 @@
 ---
-title: 【tensorflow】TFRecord数据结构
+title: 【Tensorflow2】数据存储——TFRecord的数据结构
 mathjax: true
 toc: true
 comments: true
@@ -7,6 +7,8 @@ date: 2019-12-24 17:33:06
 categories: tensorflow
 tags: tensorflow tfrecord sequenceExample
 ---
+
+
 
 TFRecord是官方推荐使用的tensorflow模型数据存储格式。基于该格式的模型数据，可以实现较小空间大小的数据携带。
 这里使用java的API，对TFRecord中基本数据结构：BytesList、FloatList、Int64List、Feature、Features、Example、FeatureList、FeatureLists、SequenceExample进行说明。

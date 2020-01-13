@@ -3,9 +3,9 @@ title: 【Tensorflow2】从这里开始
 mathjax: true
 toc: false
 comments: true
-date: 2020-01-11 10:08:54
-categories:
-tags:
+date: 2020-01-01 10:08:54
+categories: tensorflow
+tags: tensorflow outline
 ---
 
 最近夜不能寐，总是有一个声音在耳边回荡：
