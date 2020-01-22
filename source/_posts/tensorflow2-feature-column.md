@@ -3,7 +3,7 @@ title: 【Tensorflow2】FeatureColumn简明教程
 mathjax: true
 toc: false
 comments: true
-date: 2019-12-28 17:55:28
+date: 2020-01-22 15:15:45
 categories: tensorflow
 tags: feature_column embedding_column FeatureTransformationCache StateManager
 ---
