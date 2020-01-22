@@ -5,7 +5,7 @@ toc: false
 comments: true
 date: 2020-01-22 16:33:21
 categories: tensorflow
-tags: estimator head flag keras exporter dataset
+tags: estimator head flag keras exporter dataset hook
 ---
 
 借助Tensorflow实现自定义模型的方法有很多。通过参考官方给出的LR、DNN、WideAndDeep模型的实现，我总结了一套较为完整的使用Estimator自定义模型的流程。
@@ -13,7 +13,9 @@ tags: estimator head flag keras exporter dataset
 
 <!--more-->
 
-# 1. 自定义Model的基本架构（以YouTube DNN模型的双塔结构为例）
+# 1. 自定义Model的基本架构
+
+这里以YouTube DNN模型的双塔结构为例。模型实现可能会有疏漏，欢迎指正。
 
 ```python
 class UserDefineModel(tf.keras.Model):
