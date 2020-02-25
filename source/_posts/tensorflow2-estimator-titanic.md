@@ -280,7 +280,7 @@ model = tf.estimator.DNNClassifier(feature_columns=feature_column(),
                                    dropout=0.7,
                                    hidden_units=[256, 128, 64],
                                    optimizer='Adam',
-                                   model_dir='./model5',
+                                   model_dir='./model',
                                    n_classes=2)
 
 train_input, test_input = split_data('./train.csv', test_rate=0.2)
@@ -296,7 +296,7 @@ tf.estimator.train_and_evaluate(
 
 ```text
 INFO:tensorflow:Using default config.
-INFO:tensorflow:Using config: {'_model_dir': './model5', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+INFO:tensorflow:Using config: {'_model_dir': './model', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
 graph_options {
   rewrite_options {
     meta_optimizer_iterations: ONE
@@ -318,7 +318,7 @@ INFO:tensorflow:Create CheckpointSaverHook.
 INFO:tensorflow:Graph was finalized.
 INFO:tensorflow:Running local_init_op.
 INFO:tensorflow:Done running local_init_op.
-INFO:tensorflow:Saving checkpoints for 0 into ./model5/model.ckpt.
+INFO:tensorflow:Saving checkpoints for 0 into ./model/model.ckpt.
 INFO:tensorflow:loss = 0.9460948, step = 0
 INFO:tensorflow:global_step/sec: 108.812
 INFO:tensorflow:loss = 0.5249347, step = 100 (0.920 sec)
@@ -326,7 +326,7 @@ INFO:tensorflow:global_step/sec: 215.037
 INFO:tensorflow:loss = 0.4911957, step = 200 (0.465 sec)
 INFO:tensorflow:global_step/sec: 227.797
 INFO:tensorflow:loss = 0.48654288, step = 300 (0.439 sec)
-INFO:tensorflow:Saving checkpoints for 357 into ./model5/model.ckpt.
+INFO:tensorflow:Saving checkpoints for 357 into ./model/model.ckpt.
 INFO:tensorflow:Calling model_fn.
 WARNING:tensorflow:Layer dnn is casting an input tensor from dtype float64 to the layer's dtype of float32, which is new behavior in TensorFlow 2.  The layer has dtype float32 because it's dtype defaults to floatx.
 
@@ -337,12 +337,12 @@ To change all layers to have dtype float64 by default, call `tf.keras.backend.se
 INFO:tensorflow:Done calling model_fn.
 INFO:tensorflow:Starting evaluation at 2020-02-25T13:25:28Z
 INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from ./model5/model.ckpt-357
+INFO:tensorflow:Restoring parameters from ./model/model.ckpt-357
 INFO:tensorflow:Running local_init_op.
 INFO:tensorflow:Done running local_init_op.
 INFO:tensorflow:Finished evaluation at 2020-02-25-13:25:29
 INFO:tensorflow:Saving dict for global step 357: accuracy = 0.7303371, accuracy_baseline = 0.6348315, auc = 0.8478557, auc_precision_recall = 0.7938756, average_loss = 0.5330257, global_step = 357, label/mean = 0.36516854, loss = 0.53750694, precision = 0.9047619, prediction/mean = 0.24691269, recall = 0.2923077
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 357: ./model5/model.ckpt-357
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 357: ./model/model.ckpt-357
 INFO:tensorflow:Loss for final step: 0.46987808.
 ```
 
